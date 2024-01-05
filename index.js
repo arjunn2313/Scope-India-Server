@@ -24,7 +24,9 @@ const connect = () =>{
         console.log(`error while connecting to db ${err}`)
     })
 }
-
+app.get('/',(req,res)=>{
+    res.send('scope india')
+})
 // middlewares
 app.use(bodyParser.urlencoded({extended:false}))
 app.use(bodyParser.json())
