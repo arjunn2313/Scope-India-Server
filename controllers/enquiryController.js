@@ -1,4 +1,5 @@
 const enquiryModel = require("../model/enquirySchema");
+const nodemailer = require('nodemailer')
 
 const enquiry = async (req, res) => {
   try {
@@ -11,7 +12,7 @@ const enquiry = async (req, res) => {
       service: "gmail",
       auth: {
         user: process.env.email,
-        pass: process.env.epas,
+        pass: process.env.epass,
       },
     });
 
