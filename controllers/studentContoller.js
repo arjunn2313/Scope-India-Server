@@ -47,7 +47,7 @@ const register = async (req, res) => {
       from: process.env.email,
       to: email,
       subject: "Confirmation mail from scope India",
-      html: `Click the following link to validate your email: http://localhost:6060/student/validate?token=${token} <br/>
+      html: `Click the following link to validate your email: https://scope-india-server.onrender.com/student/validate?token=${token} <br/>
       TEMPORARY PASSWORD - ${password}
       `,
     };
@@ -96,10 +96,10 @@ const validate = async (req, res) => {
       password: hashpassword,
     });
 
-    res.redirect("http://localhost:3000/login");
+    res.redirect("https://scope-india-client.vercel.app/login");
   } catch (error) {
     console.error("Error during email validation:", error);
-    res.redirect("http://localhost:3000/error");
+    res.redirect("https://scope-india-client.vercel.app/error");
   }
 };
 
@@ -220,7 +220,7 @@ const generatePassword = async (req, res) => {
       from: process.env.email,
       to: email,
       subject: "Reset password from scope India",
-      html: `Click the following link to login using temporary password: http://localhost:6060/student/forgotpassword?token=${token} <br/>
+      html: `Click the following link to login using temporary password: https://scope-india-server.onrender.com/student/forgotpassword?token=${token} <br/>
       TEMPORARY PASSWORD - ${password}`,
     };
 
@@ -260,10 +260,10 @@ const savetemPass = async (req, res) => {
 
     await studentModel.findByIdAndUpdate(id, { password: hashpassword });
 
-    res.redirect("http://localhost:3000/login");
+    res.redirect("https://scope-india-client.vercel.app/login");
   } catch (error) {
     console.error("Error durinng login", error);
-    res.redirect("http://localhost:3000/error");
+    res.redirect("https://scope-india-client.vercel.app/error");
   }
 };
 module.exports = {
